@@ -188,6 +188,7 @@ open class MapView : FrameLayout, MapPluginProviderDelegate, MapControllable {
    */
   override fun onStart() {
     mapController.onStart()
+    logD("lifecycle", "${this.hashCode()} - onStart")
   }
 
   /**
@@ -197,6 +198,7 @@ open class MapView : FrameLayout, MapPluginProviderDelegate, MapControllable {
    */
   override fun onStop() {
     mapController.onStop()
+    logD("lifecycle", "${this.hashCode()} - onStop")
   }
 
   /**
@@ -206,6 +208,7 @@ open class MapView : FrameLayout, MapPluginProviderDelegate, MapControllable {
    */
   override fun onLowMemory() {
     mapController.onLowMemory()
+    logD("lifecycle", "${this.hashCode()} - onLowMemory")
   }
 
   /**
@@ -216,6 +219,7 @@ open class MapView : FrameLayout, MapPluginProviderDelegate, MapControllable {
       (viewAnnotationManager as ViewAnnotationManagerImpl).destroy()
     }
     mapController.onDestroy()
+    logD("lifecycle", "${this.hashCode()} - onDestroy")
   }
 
   /**
