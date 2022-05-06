@@ -286,7 +286,7 @@ internal class MapController : MapPluginProviderDelegate, MapControllable {
             AttributionViewPlugin()
           }
           MAPBOX_LIFECYCLE_PLUGIN_ID -> {
-            MapboxLifecyclePluginImpl()
+            MapboxLifecyclePluginImpl(mapView)
           }
           MAPBOX_LOCATION_COMPONENT_PLUGIN_ID -> {
             LocationComponentPluginImpl()
