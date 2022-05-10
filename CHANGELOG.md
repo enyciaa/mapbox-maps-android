@@ -7,6 +7,7 @@ Mapbox welcomes participation and contributions from everyone.
 * Enable support for incremental annotation processing. ([#1323](https://github.com/mapbox/mapbox-maps-android/pull/1323))
 * Make use of non-deprecated common Mapbox logger. ([#1327](https://github.com/mapbox/mapbox-maps-android/pull/1327))
 * Expose factory methods for high-level camera animators. ([#1338](https://github.com/mapbox/mapbox-maps-android/pull/1338))
+* Enable main thread checking on the map object when running applications in debug mode. ([#1316](https://github.com/mapbox/mapbox-maps-android/pull/1315))
 
 ## Bug fixes 🐞
 * Enable two finger pan gesture. ([#1280](https://github.com/mapbox/mapbox-maps-android/pull/1280))
@@ -787,7 +788,7 @@ mapView.location2.puckBearingEnabled = false
 
 ## Features ✨ and improvements 🏁
 * Rework setPrefetchZoomDelta to reduce loading of expensive tiles and optimize zoom use-case (#1850)
-* Send billing event when Map is loaded 
+* Send billing event when Map is loaded
 
 ## Bug fixes 🐞
 * Fixed an issue that causes OnStyleLoaded callback not fired when there's a sprite loading error. ([#358](https://github.com/mapbox/mapbox-maps-android/pull/358))
@@ -822,7 +823,7 @@ mapView.location2.puckBearingEnabled = false
 * Add API for disabling vertical/horizontal scroll gestures ([#319](https://github.com/mapbox/mapbox-maps-android/pull/319))
 * Introduce API to enable render cache feature that could bring up rendering performance improvement. ([#326](https://github.com/mapbox/mapbox-maps-android/pull/326))
 * Add `removeAnnotationManager` API. ([#330](https://github.com/mapbox/mapbox-maps-android/pull/330))
-* Improve terrain's rendering performance 
+* Improve terrain's rendering performance
 * Set `begin` and `end` timestamps for StyleLoaded and MapLoaded events, so that developers could check how much time it takes to load style and map, respectively
 * Added `tile-requests-delay` and `tile-network-requests-delay` runtime source properties - an API for tile requests delay
 * Introduce MapOptions.optimizeForTerrain option that allow style rendering optimizations for terrain rendering
@@ -907,12 +908,12 @@ mapView.location2.puckBearingEnabled = false
 * Add feature sdk initialisation ([#269](https://github.com/mapbox/mapbox-maps-android/pull/269))
   - Load the Mapbox Street style by default if user doesn't load any style before the onStart lifecycle event.
   - Introduce `CredentialsManager` to manage mapbox access token, when all `MapView`s should use same token could be handled by using `CredentialsManager.shared` static object.
-  - Introduce `MapInitOptions` to replace MapboxMapOptions. 
+  - Introduce `MapInitOptions` to replace MapboxMapOptions.
 ## Features ✨ and improvements 🏁
 * High-level animations return cancelable interface ([#262](https://github.com/mapbox/mapbox-maps-android/pull/262))
 * Introduce OfflineManager API that manages style packs and produces tileset descriptors for the tile store.
   - By default, users may download up to 250MB of data for offline use without incurring additional charges. This limit is subject to change during the beta.
-  - The new API replaces the deprecated OfflineRegionManager API. The OfflineManager API can be used to create offline style packs that contain style data, such as: style definition, sprites, fonts and other resources. Tileset descriptors created by the OfflineManager API are used to create tile packs via TileStore API. Mobile maps SDKs use tile packs for rendering map content. 
+  - The new API replaces the deprecated OfflineRegionManager API. The OfflineManager API can be used to create offline style packs that contain style data, such as: style definition, sprites, fonts and other resources. Tileset descriptors created by the OfflineManager API are used to create tile packs via TileStore API. Mobile maps SDKs use tile packs for rendering map content.
 * Add offline activity example. ([#259](https://github.com/mapbox/mapbox-maps-android/pull/259))
 * Load the Mapbox Street style by default if user doesn't load any style before the onStart lifecycle event([#248](https://github.com/mapbox/mapbox-maps-android/pull/248))
 
@@ -933,10 +934,10 @@ mapView.location2.puckBearingEnabled = false
     - Circle -> CircleAnnotation
     - Line -> PolylineAnnotation
     - Fill -> PolygonAnnotation
-* mapboxMap.queryRenderedFeatures will return a new data class QueriedFeature which will contain additional properties ([#247](https://github.com/mapbox/mapbox-maps-android/pull/247)): 
+* mapboxMap.queryRenderedFeatures will return a new data class QueriedFeature which will contain additional properties ([#247](https://github.com/mapbox/mapbox-maps-android/pull/247)):
     - source (id of the source)
     - sourceLayer (id of the source's layer)
-    - state (feature's state) 
+    - state (feature's state)
 * Rename Style#isStyleFullyLoaded to Style#isStyleLoaded
 * Remove old map#drag API and the AnimationOptions API
 * Don't emit MapIdle event when there is gesture and / or user animation in progress
